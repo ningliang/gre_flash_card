@@ -6,5 +6,7 @@
 		%script{ :type => "text/javascript", :src => "/js/utility.js" }
 		%link{ :rel => "stylesheet", :type => "text/css", :href => "/css/stylesheet.css" }
 	%body
-		%h1= "Wordfoo"
-		= yield
+		#wrapper
+			%h1= "Wordfoo"
+			= yield
+			.clear

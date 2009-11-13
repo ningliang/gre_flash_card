@@ -69,8 +69,8 @@ function Deck(node, wordList) {
 		back.html(words[list[currentIndex]]);
 		(currentIndex == list.length - 1) ? next.hide() : next.show();
 		(currentIndex == 0) ? previous.hide() : previous.show();
-		front.show();
-		back.hide();
+		front.css({ position: "absolute", top: "50%", "margin-top": "-" + (front.height() / 2) + "px"}).show();
+		back.css({ position: "absolute", top: "50%", "margin-top": "-" + (back.height() / 2) + "px"}).hide();
 		progress.html((currentIndex + 1) + " of " + list.length + " words");
 	}
 	

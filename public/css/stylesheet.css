@@ -1,3 +1,70 @@
-.ui-tabs .ui-tabs-hide {
-     display: none;
+#wrapper {
+	width: 980px;
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px dotted gray;
+}
+
+#sets {
+	width: 960px;
+}
+
+.clear {
+	clear: both;
+}
+
+.set {
+	width: 900px;
+	display: block;
+	float: left;
+	font-size: 17px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#study {
+	width: 800px;
+	margin: auto auto;
+}
+
+#card {
+	width: 500px;
+	height: 300px;
+	border: 1px dotted gray;
+	margin: auto auto;
+	position: relative;
+}
+
+#front,
+#back {
+	display: block;
+	width: 500px;
+	text-align: center;
+	color: black;
+}
+
+#front {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#back {
+	font-size: 18px;
+}
+
+.word-entry {
+	float: left;
+	width: 440px;
+	margin: 5px 20px 5px auto;
+}
+
+.word {
+	float: left;
+	width: 140px;
+	font-weight: bold;
+}
+
+.definition {
+	float: right;
+	width: 300px;
 }

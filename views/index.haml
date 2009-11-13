@@ -1,4 +1,4 @@
 %h2= "Sets"
-%div.sets
+%div#sets
 	- sets.each do |set|
-		%a{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"
+		%a.set{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"
