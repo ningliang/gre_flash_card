@@ -1,0 +1,25 @@
+%a{ :href => "/" }= "Back"
+%h2#title= set["title"]
+#study-tabs
+	%ul
+		%li
+			%a{ :href => "#study"}
+				%span= "Study"
+		%li
+			%a{ :href => "#definitions"}
+				%span= "Definitions"
+	#study
+		%a#reset{ :href => "#" }= "Start Over"
+		#progress
+		#card
+			%a#flip{ :href => "#" }
+				#front
+				#back
+		#buttons
+			%a#flag{ :href => "#" }= "Flag"
+			%a#next{ :href => "#" }= "Next"
+	#definitions
+	
+:javascript
+	set = #{set.to_json}
+%script{ :type => "text/javascript", :src => "/js/study.js" }
