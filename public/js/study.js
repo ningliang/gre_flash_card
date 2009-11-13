@@ -42,7 +42,8 @@ function Deck(node, wordList) {
 	var card = $("#card", node);
 	var front = $("#front", node);
 	var back = $("#back", node);
-	var flip = $("a#flip", node);
+	var flip = $("#flip", node);
+	var previous = $("#previous", node);
 	var flag = $("#flag", node);
 	var next = $("#next", node);
 	
@@ -67,6 +68,7 @@ function Deck(node, wordList) {
 		front.html(list[currentIndex]);
 		back.html(words[list[currentIndex]]);
 		(currentIndex == list.length - 1) ? next.hide() : next.show();
+		(currentIndex == 0) ? previous.hide() : previous.show();
 		front.show();
 		back.hide();
 		progress.html((currentIndex + 1) + " of " + list.length + " words");
@@ -86,12 +88,19 @@ function Deck(node, wordList) {
 		render();
 	}
 	
-	this.flag = function() {
-		current = list[currentIndex];
-		list.splice(currentIndex, 1);
-		newIndex = currentIndex + Math.floor(Math.random() * (list.length - currentIndex - 1));
-		list.splice(newIndex, 0, current);
+	this.previous = function() {
+		currentIndex--;
 		render();
+	}
+	
+	this.flag = function() {
+		if (currentIndex < list.length - 1) {
+			current = list[currentIndex];
+			list.splice(currentIndex, 1);
+			insertIndex = currentIndex + Math.floor(Math.random() * (list.length - currentIndex + 1));
+			list.splice(insertIndex, 0, current);
+			render();
+		}
 	}
 	
 	this.flip = function() {
@@ -103,6 +112,7 @@ function Deck(node, wordList) {
 	function bindAll() {
 		reset.click(function(e) { e.preventDefault(); that.reset(); });
 		next.click(function(e) { e.preventDefault(); that.next(); });
+		previous.click(function(e) { e.preventDefault(); that.previous(); });
 		flag.click(function(e) { e.preventDefault(); that.flag(); });
 		flip.click(function(e) { e.preventDefault(); that.flip(); });
 	}
