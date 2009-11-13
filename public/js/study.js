@@ -28,6 +28,7 @@ function StudyArea(node, set) {
 	$("li:first", node).click();
 }
 
+// Holds the deck of cards
 function Deck(node, wordList) {
 	// Utility
 	var that = this;
@@ -65,13 +66,7 @@ function Deck(node, wordList) {
 	function render() {
 		front.html(list[currentIndex]);
 		back.html(words[list[currentIndex]]);
-		if (currentIndex == list.length - 1) {
-			next.hide();
-			flag.hide();
-		} else {
-			next.show();
-			flag.show();
-		}
+		(currentIndex == list.length - 1) ? next.hide() : next.show();
 		front.show();
 		back.hide();
 		progress.html((currentIndex + 1) + " of " + list.length + " words");
@@ -92,7 +87,11 @@ function Deck(node, wordList) {
 	}
 	
 	this.flag = function() {
-		// TODO splice
+		current = list[currentIndex];
+		list.splice(currentIndex, 1);
+		newIndex = currentIndex + Math.floor(Math.random() * (list.length - currentIndex - 1));
+		list.splice(newIndex, 0, current);
+		render();
 	}
 	
 	this.flip = function() {
@@ -111,18 +110,7 @@ function Deck(node, wordList) {
 	that.reset();
 }
 
-/*
-#study
-	#stats
-	#card
-		%a#flip{ :href => "#" }
-			#front
-			#back
-	#buttons
-		%a#flag{ :href => "#" }= "Flag"
-		%a#next{ :href => "#" }= "Next"
-*/
-
+// Holds a list of definitions - may want to make it searchable, etc.
 function Definitions(node, words) {
 	var that = this;
 	var node = $(node);
