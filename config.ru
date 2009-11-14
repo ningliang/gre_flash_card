@@ -1,11 +1,15 @@
 require 'rubygems'
-require 'sinatra'
+require 'sinatra' 
 
-root_dir = File.dirname(__FILE__)
+set :public,   File.expand_path(File.dirname(__FILE__) + '/public') #Include your public folder
+set :views,    File.expand_path(File.dirname(__FILE__) + '/views')  #Include the views
+set :environment, :production
 
-set :environment, ENV['RACK_ENV'].to_sym
-set :root,        root_dir
-set :app_file,    File.join(root_dir, 'application.rb')
-disable :run
+disable :run, :reload
 
+log = File.new("sinatra.log", "a") # This will make a nice sinatra log along side your apache access and error logs
+STDOUT.reopen(log)
+STDERR.reopen(log)
+
+require 'application'
 run Sinatra::Application
