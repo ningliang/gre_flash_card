@@ -108,6 +108,16 @@ function Deck(node, wordList) {
 		back.is(":visible") ? back.hide() : back.show();
 	}
 	
+	// Keypress
+	function checkKey(e){
+		switch (e.keyCode) {
+			case 40: that.flag(); break;
+	        case 37: if (currentIndex > 0) that.previous(); break;
+	        case 39: if (currentIndex < list.length - 1) that.next(); break;
+	        default: break;
+		}
+	}
+	
 	// Match ui buttons to functions
 	function bindAll() {
 		reset.click(function(e) { e.preventDefault(); that.reset(); });
@@ -115,6 +125,9 @@ function Deck(node, wordList) {
 		previous.click(function(e) { e.preventDefault(); that.previous(); });
 		flag.click(function(e) { e.preventDefault(); that.flag(); });
 		flip.click(function(e) { e.preventDefault(); that.flip(); });
+		
+		if ($.browser.mozilla) $(document).keypress(checkKey);
+		else $(document).keydown(checkKey);
 	}
 	bindAll();
 	that.reset();

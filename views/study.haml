@@ -19,7 +19,10 @@
       %a#next{ :href => "#" }= "Next"
     %a#reset{ :href => "#" }= "Start Over"
     #progress
-    #instructions= "Click to flip, flag to place further in deck."
+    #instructions
+      = "Click to flip, flag to place further in deck."
+      %br
+      = "Keyboard: Right - Next, Left - Previous, Down - Flag"
   #definitions
 
 :javascript
