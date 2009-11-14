@@ -66,7 +66,7 @@ function Deck(node, wordList) {
 	// Render the current card, front side up
 	function render() {
 		front.html(list[currentIndex]);
-		back.html(words[list[currentIndex]]);
+		back.html("<b>" + list[currentIndex] + ":</b> " + words[list[currentIndex]]);
 		(currentIndex == list.length - 1) ? next.hide() : next.show();
 		(currentIndex == 0) ? previous.hide() : previous.show();
 		front.show().center();
