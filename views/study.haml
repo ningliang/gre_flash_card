@@ -1,5 +1,5 @@
-%a{ :href => "/" }= "Back"
-%h2#title= set["title"]
+%h2#sub-title= set["title"]
+%a#back-button{ :href => "/" }= "Back"
 #study-tabs
 	%ul
 		%li
@@ -9,9 +9,7 @@
 			%a{ :href => "#definitions"}
 				%span= "Definitions"
 	#study
-		%a#reset{ :href => "#" }= "Start Over"
-		#progress
-		#card
+		#card			
 			%a#flip{ :href => "#" }
 				#front
 				#back
@@ -19,6 +17,9 @@
 			%a#previous{ :href => "#" }= "Previous"
 			%a#flag{ :href => "#" }= "Flag"
 			%a#next{ :href => "#" }= "Next"
+		%a#reset{ :href => "#" }= "Start Over"
+		#progress
+		#instructions= "Click to flip, flag to place further in deck."
 	#definitions
 	
 :javascript

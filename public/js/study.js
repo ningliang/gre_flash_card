@@ -19,9 +19,9 @@ function StudyArea(node, set) {
 		var selector = $("a", this).attr("href");
 		$(this).click(function(e) {
 			e.preventDefault();
-			$("> div", node).each(function() {
-				$(this).hide();
-			});
+			$("li", node).each(function() { $(this).removeClass("active"); });
+			$(this).addClass("active");
+			$("> div", node).each(function() { $(this).hide(); });
 			$(selector, node).show();
 		});
 	});
@@ -69,9 +69,9 @@ function Deck(node, wordList) {
 		back.html(words[list[currentIndex]]);
 		(currentIndex == list.length - 1) ? next.hide() : next.show();
 		(currentIndex == 0) ? previous.hide() : previous.show();
-		front.css({ position: "absolute", top: "50%", "margin-top": "-" + (front.height() / 2) + "px"}).show();
-		back.css({ position: "absolute", top: "50%", "margin-top": "-" + (back.height() / 2) + "px"}).hide();
-		progress.html((currentIndex + 1) + " of " + list.length + " words");
+		front.show().center();
+		back.hide().center();
+		progress.html((currentIndex + 1) + " of " + list.length + " word(s).");
 	}
 	
 	// Randomize words in hash and insert into list, clear stats
@@ -129,7 +129,8 @@ function Definitions(node, words) {
 		var word = this;
 		node.append($("<div/>").addClass("word-entry")
 			.append($("<div/>").addClass("word").html(word["word"]))
-			.append($("<div/>").addClass("definition").html(word["definition"])));
+			.append($("<div/>").addClass("definition").html(word["definition"]))
+			.append($("<div/>").addClass("clear")));
 	});
 }
 

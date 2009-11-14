@@ -1,6 +1,19 @@
 var BASE_URL = window.location.protocol + "//" + window.location.host;
 var OK = 200;
 
+// Center an element vertically and horizontall
+$.fn.center = function() {
+	var node = $(this);
+	node.css({ 
+		position: "absolute", 
+		top: "50%", 
+		"margin-top": "-" + (node.height() / 2) + "px",
+		"margin-left": "20px",
+		"margin-right": "20px",
+		width: (node.parent().width() - 40) + "px"
+	});
+}
+
 // Make any class a singleton
 function makeSingleton(klass) {
 	klass.instance = null;
