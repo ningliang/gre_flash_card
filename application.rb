@@ -53,7 +53,7 @@ def get_set_summaries()
   sets = []
   set_table.keys.each do |key|
     set = set_table[key]
-    sets.push( { "title" => set["title"], "id" => key.to_i, "count" => set["count"].to_i } ) 
+    sets.push( { "title" => set["title"], "id" => key.to_i, "count" => set["count"].to_i, "type" => set["type"] } ) 
   end
   set_table.close
   sets
