@@ -7,9 +7,5 @@ set :environment, :production
 
 disable :run, :reload
 
-log = File.new("sinatra.log", "a+") # This will make a nice sinatra log along side your apache access and error logs
-STDOUT.reopen(log)
-STDERR.reopen(log)
-
 require 'application'
 run Sinatra::Application
