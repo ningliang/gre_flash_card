@@ -110,10 +110,12 @@ function Deck(node, wordList) {
 	
 	// Keypress
 	function checkKey(e){
-		switch (e.keyCode) {
-			case 40: that.flag(); break;
-	        case 37: if (currentIndex > 0) that.previous(); break;
-	        case 39: if (currentIndex < list.length - 1) that.next(); break;
+		var code = e.keyCode ? e.keyCode : e.which;
+		switch (code) {
+			case 107: that.flag(); break;
+	        case 106: if (currentIndex > 0) that.previous(); break;
+	        case 108: if (currentIndex < list.length - 1) that.next(); break;
+			case 105: that.flip(); break;
 	        default: break;
 		}
 	}
