@@ -1,9 +1,9 @@
 %div#sets
-	%h2.set-header= "Alphabetical"
-	- sets.each do |set|
-		- if set["type"].eql? "alpha"
-			%a.set{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"
-	%h2.set-header= "By Length"
-	- sets.each do |set|
-		- if set["type"].eql? "length"
-			%a.set{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"
+  %h2.set-header= "Alphabetical"
+  - sets.each do |set|
+    - if set["type"].eql? "alpha"
+      %a.set{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"
+  %h2.set-header= "By Length"
+  - sets.each do |set|
+    - if set["type"].eql? "length"
+      %a.set{ :href => "/study/#{set["id"]}" }= "#{set["title"]} (#{set["count"]} words)"

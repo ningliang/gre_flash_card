@@ -1,13 +1,13 @@
 !!! Strict
 %html
-	%head
-		%title= "Wordfoo"
-		%script{ :type => "text/javascript", :src => "/js/jquery.min.js" }
-		%script{ :type => "text/javascript", :src => "/js/utility.js" }
-		%link{ :rel => "stylesheet", :type => "text/css", :href => "/css/stylesheet.css" }
-	%body
-		#wrapper
-			%a#main-title-link{ :href => "/" }
-				%h1#main-title= "Wordfoo"
-			= yield
-			.clear
+  %head
+    %title= "Wordfoo"
+    %script{ :type => "text/javascript", :src => "/js/jquery.min.js" }
+    %script{ :type => "text/javascript", :src => "/js/utility.js" }
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "/css/stylesheet.css" }
+  %body
+    #wrapper
+      %a#main-title-link{ :href => "/" }
+        %h1#main-title= "Wordfoo"
+      = yield
+      .clear

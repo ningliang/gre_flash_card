@@ -1,27 +1,27 @@
 %h2#sub-title= set["title"]
 %a#back-button{ :href => "/" }= "Back"
 #study-tabs
-	%ul
-		%li
-			%a{ :href => "#study"}
-				%span= "Study"
-		%li
-			%a{ :href => "#definitions"}
-				%span= "Definitions"
-	#study
-		#card			
-			%a#flip{ :href => "#" }
-				#front
-				#back
-		#buttons
-			%a#previous{ :href => "#" }= "Previous"
-			%a#flag{ :href => "#" }= "Flag"
-			%a#next{ :href => "#" }= "Next"
-		%a#reset{ :href => "#" }= "Start Over"
-		#progress
-		#instructions= "Click to flip, flag to place further in deck."
-	#definitions
-	
+  %ul
+    %li
+      %a{ :href => "#study"}
+        %span= "Study"
+    %li
+      %a{ :href => "#definitions"}
+        %span= "Definitions"
+  #study
+    #card			
+      %a#flip{ :href => "#" }
+        #front
+        #back
+    #buttons
+      %a#previous{ :href => "#" }= "Previous"
+      %a#flag{ :href => "#" }= "Flag"
+      %a#next{ :href => "#" }= "Next"
+    %a#reset{ :href => "#" }= "Start Over"
+    #progress
+    #instructions= "Click to flip, flag to place further in deck."
+  #definitions
+
 :javascript
-	set = #{set.to_json}
+  set = #{set.to_json}
 %script{ :type => "text/javascript", :src => "/js/study.js" }
