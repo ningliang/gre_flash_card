@@ -56,7 +56,7 @@ end
 
 words.each do |word|
   length = word["word"].length
-  bucket_index = [(length / BUCKET_SIZE).ceil - 1, BUCKET_COUNT - 1].min
+  bucket_index = [(length.to_f / BUCKET_SIZE.to_f).ceil - 1, BUCKET_COUNT - 1].min
   buckets[bucket_index].push word["id"]
 end
 
