@@ -8,9 +8,9 @@ SET_TABLE = "#{ROOT}/data/sets.tct"
 
 # Start each server
 puts "Starting word db"
-`nohup #{TTS} -p #{WORD_TABLE_PORT} #{WORD_TABLE} &`
+`nohup #{TTS} -port #{WORD_TABLE_PORT} #{WORD_TABLE} &`
 
 puts "Starting set db"
-`nohup #{TTS} -p #{SET_TABLE_PORT} #{SET_TABLE}} &`
+`nohup #{TTS} -port #{SET_TABLE_PORT} #{SET_TABLE}} &`
 
 puts "Done"
